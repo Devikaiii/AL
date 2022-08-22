@@ -194,9 +194,9 @@ async def next_page(bot, query):
         ]
         btn.insert(0, 
         [
-            InlineKeyboardButton(f'🗳️ ʜᴇʟᴘ', 'movieinfo'),
-            InlineKeyboardButton(f'🗃️ ɴᴏᴛᴇ', 'movss'),
-            InlineKeyboardButton(f'🔅 ɪɴғᴏ', 'moviis')
+            InlineKeyboardButton(f'🗳️ ʜᴇʟᴘ', callback_data='helpx'),
+            InlineKeyboardButton(f'🗃️ ɴᴏᴛᴇ', callback_data='notex'),
+            InlineKeyboardButton(f'🔅 ɪɴғᴏ', callbackdata='infox')
         ]
     )
 
@@ -209,7 +209,7 @@ async def next_page(bot, query):
     if n_offset == 0:
         btn.append(
             [InlineKeyboardButton("ʙᴀᴄᴋ", callback_data=f"next_{req}_{key}_{off_set}"),
-             InlineKeyboardButton(f"{round(int(offset)/10)+1} - {round(total/10)}", callback_data="neosub"),
+             InlineKeyboardButton(f"1{round(int(offset)/10)+1} - {round(total/10)}", callback_data="neosub"),
              InlineKeyboardButton("ᴅᴇʟᴇᴛᴇ", callback_data="close_pages")]
         )
         btn.append(
@@ -220,7 +220,7 @@ async def next_page(bot, query):
         )
     elif off_set is None:
         btn.append([InlineKeyboardButton(f"Fɪʟᴇs:", callback_data="neosub"),
-                    InlineKeyboardButton(f"Pᴀɢᴇs: {round(int(offset)/10)+1} - {round(total/10)}", callback_data="neosub"),
+                    InlineKeyboardButton(f"Pᴀɢᴇs: 1{round(int(offset)/10)+1} - {round(total/10)}", callback_data="neosub"),
                     InlineKeyboardButton("Gᴏ Nᴇxᴛ »", callback_data=f"next_{req}_{key}_{n_offset}")])
         btn.append([InlineKeyboardButton(f"{message.chat.title}",callback_data=f"neosub")])
         btn.insert(0,
@@ -728,6 +728,12 @@ async def cb_handler(client: Client, query: CallbackQuery):
         await contrast(client, query.message)
     elif query.data == "box":
         await box_blur(client, query.message)
+    elif query.data == "helpx":
+        await query.answer("Sᴇʟᴇᴄᴛ ʏᴏᴜʀ ғɪʟᴇs ғʀᴏᴍ ᴛʜᴇ ʙᴜᴛᴛᴏɴs ɢɪᴠᴇɴ ʙᴇʟᴏᴡ ᴛʜᴇɴ ᴄʟɪᴄᴋ ᴏɴ sᴛᴀʀᴛ ғᴏʀ ᴅᴏᴡɴʟᴏᴀᴅ.\nᴜsᴇ ɴᴇxᴛ ʙᴜᴛᴛᴏɴ ғᴏʀ ᴍᴏʀᴇ ᴘᴀɢᴇs.", show_alert=True)
+    elif query.data == "notex":
+        await query.answer("Dᴏ ɴᴏᴛ ᴜsᴇ sᴘᴇᴄɪᴀʟ ᴄʜᴀʀᴀᴄᴛᴇʀs ᴡʜᴇɴ ʀᴇǫᴜᴇsᴛɪɴɢ ᴀ ᴍᴏᴠɪᴇ.\nUsᴇ ʏᴇᴀʀ ᴀɴᴅ ʟᴀɴɢᴜᴀɢᴇ ғᴏʀ ʙᴇᴛᴛᴇʀ ʀᴇsᴜʟᴛs.\n\nExᴀᴍᴘʟᴇ👇\n\nPushpa 2021 ✅\nPushpa Tamil ✅\nPushpa Movie ❌\nPushpa Tamil Dub ❌", show_alert=True)
+    elif query.data == "infox":  
+        await query.answer("⚠︎ ɪɴғᴏʀᴍᴀᴛɪᴏɴ ⚠︎\n\nAғᴛᴇʀ 30 ᴍɪɴᴜᴛᴇs ᴛʜɪs ᴍᴇssᴀɢᴇ ᴡɪʟʟ ʙᴇ ᴀᴜᴛᴏᴍᴀᴛɪᴄᴀʟʟʏ ᴅᴇʟᴇᴛᴇᴅ ᴛᴏ ᴀᴠᴏɪᴅ ᴄᴏᴘʏʀɪɢʜᴛ.", show_alert=True)   
     elif query.data == "gas":
         await g_blur(client, query.message)
     elif query.data == "normal":
