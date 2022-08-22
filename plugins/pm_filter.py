@@ -729,7 +729,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
     elif query.data == "box":
         await box_blur(client, query.message)
     elif query.data == "helpx":
-        await query.answer("Sᴇʟᴇᴄᴛ ʏᴏᴜʀ ғɪʟᴇs ғʀᴏᴍ ᴛʜᴇ ʙᴜᴛᴛᴏɴs ɢɪᴠᴇɴ ʙᴇʟᴏᴡ ᴛʜᴇɴ ᴄʟɪᴄᴋ ᴏɴ sᴛᴀʀᴛ ғᴏʀ ᴅᴏᴡɴʟᴏᴀᴅ.\nᴜsᴇ ɴᴇxᴛ ʙᴜᴛᴛᴏɴ ғᴏʀ ᴍᴏʀᴇ ᴘᴀɢᴇs.", show_alert=True)
+        await query.answer("Sᴇʟᴇᴄᴛ ʏᴏᴜʀ ғɪʟᴇs ғʀᴏᴍ ᴛʜᴇ ʙᴜᴛᴛᴏɴs ʙᴇʟᴏᴡ ᴀɴᴅ ᴄʟɪᴄᴋ ᴏɴ sᴛᴀʀᴛ ᴛᴏ ᴅᴏᴡɴʟᴏᴀᴅ.\n\nᴜsᴇ `Nᴇxᴛ »´ ʙᴜᴛᴛᴏɴ ғᴏʀ ᴍᴏʀᴇ ᴘᴀɢᴇs.", show_alert=True)
     elif query.data == "notex":
         await query.answer("Dᴏ ɴᴏᴛ ᴜsᴇ sᴘᴇᴄɪᴀʟ ᴄʜᴀʀᴀᴄᴛᴇʀs ᴡʜᴇɴ ʀᴇǫᴜᴇsᴛɪɴɢ ᴀ ᴍᴏᴠɪᴇ.\nUsᴇ ʏᴇᴀʀ ᴀɴᴅ ʟᴀɴɢᴜᴀɢᴇ ғᴏʀ ʙᴇᴛᴛᴇʀ ʀᴇsᴜʟᴛs.\n\nExᴀᴍᴘʟᴇ👇\n\nPushpa 2021 ✅\nPushpa Tamil ✅\nPushpa Movie ❌\nPushpa Tamil Dub ❌", show_alert=True)
     elif query.data == "infox":  
