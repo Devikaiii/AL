@@ -192,30 +192,53 @@ async def next_page(bot, query):
             ]
             for file in files
         ]
+     btn.insert(0, 
+        [
+            InlineKeyboardButton(f'🎁 ɪɴꜰᴏ', 'movieinfo'),
+            InlineKeyboardButton(f'🕊️ ᴍᴏᴠɪᴇ 🕊️', 'movss'),
+            InlineKeyboardButton(f'ꜱᴇʀɪᴇꜱ 🎁', 'moviis')
+        ]
+    )
 
-    if 0 < offset <= 10:
+    if 0 < offset <= 12:
         off_set = 0
     elif offset == 0:
         off_set = None
     else:
-        off_set = offset - 10
+        off_set = offset - 12
     if n_offset == 0:
         btn.append(
-            [InlineKeyboardButton("⏪️ Back", callback_data=f"next_{req}_{key}_{off_set}"),
-             InlineKeyboardButton(f"📃 Pages {round(int(offset) / 10) + 1} / {round(total / 10)}",
-                                  callback_data="pages")]
+            [InlineKeyboardButton("ʙᴀᴄᴋ", callback_data=f"next_{req}_{key}_{off_set}"),
+             InlineKeyboardButton(f"{round(int(offset)/10)+1} - {round(total/10)}", callback_data="neosub"),
+             InlineKeyboardButton("ᴅᴇʟᴇᴛᴇ", callback_data="close_pages")]
+        )
+        btn.append(
+            [InlineKeyboardButton(f"📣 ഉർവശി തീയറ്റേഴ്‌സ് 📣",url=f"'https://t.me/{SUPPORT_CHAT}")]
+        )
+        btn.insert(0,
+            [InlineKeyboardButton(f"🎭 {search} 🎭",callback_data="reqst11")]
         )
     elif off_set is None:
-        btn.append(
-            [InlineKeyboardButton(f"📃 Pages {round(int(offset) / 10) + 1} / {round(total / 10)}", callback_data="pages"),
-             InlineKeyboardButton("Next ⏩️", callback_data=f"next_{req}_{key}_{n_offset}")])
+        btn.append([InlineKeyboardButton("ᴘᴀɢᴇ", callback_data="neosub"),
+                    InlineKeyboardButton(f"{round(int(offset)/10)+1} - {round(total/10)}", callback_data="neosub"),
+                    InlineKeyboardButton("ɴᴇxᴛ", callback_data=f"next_{req}_{key}_{n_offset}")])
+        btn.append([InlineKeyboardButton("📣 ഉർവശി തീയറ്റേഴ്‌സ് 📣",url=f"'https://t.me/{SUPPORT_CHAT}")])
+        btn.insert(0,
+            [InlineKeyboardButton(f"🎭 {search} 🎭",callback_data="reqst11")]
+        )
     else:
         btn.append(
             [
-                InlineKeyboardButton("⏪️ Back", callback_data=f"next_{req}_{key}_{off_set}"),
-                InlineKeyboardButton(f"📃 {round(int(offset) / 10) + 1} / {round(total / 10)}", callback_data="pages"),
-                InlineKeyboardButton("Next ⏩️", callback_data=f"next_{req}_{key}_{n_offset}")
+                InlineKeyboardButton("ʙᴀᴄᴋ", callback_data=f"next_{req}_{key}_{off_set}"),
+                InlineKeyboardButton(f"{round(int(offset)/10)+1} - {round(total/10)}", callback_data="neosub"),
+                InlineKeyboardButton("ɴᴇxᴛ", callback_data=f"next_{req}_{key}_{n_offset}")
             ],
+        )
+        btn.append(
+            [InlineKeyboardButton(f"📣 ഉർവശി തീയറ്റേഴ്‌സ് 📣",url=f"https://t.me/{SUPPORT_CHAT}")]
+        )
+        btn.insert(0,
+            [InlineKeyboardButton(f"🎭 {search} 🎭",callback_data="reqst11")]
         )
     try:
         await query.edit_message_reply_markup(
