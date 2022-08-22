@@ -1395,9 +1395,9 @@ async def auto_filter(client, msg, spoll=False):
         ]
     btn.insert(0, 
         [
-            InlineKeyboardButton(f'🗳️ ʜᴇʟᴘ', 'movieinfo'),
-            InlineKeyboardButton(f'🗃️ ɴᴏᴛᴇ', 'movss'),
-            InlineKeyboardButton(f'🔅 ɪɴғᴏ', 'moviis')
+            InlineKeyboardButton(f'🗳️ ʜᴇʟᴘ', callback_data='helpx'),
+            InlineKeyboardButton(f'🗃️ ɴᴏᴛᴇ', callback_data='notex'),
+            InlineKeyboardButton(f'🔅 ɪɴғᴏ', callback_data='infox')
         ]
     )
 
@@ -1406,7 +1406,7 @@ async def auto_filter(client, msg, spoll=False):
         BUTTONS[key] = search
         req = message.from_user.id if message.from_user else 0
         btn.append(
-            [InlineKeyboardButton(f"Fɪʟᴇs: {total_results}", callback_data="neosub"),InlineKeyboardButton(text=f"Pᴀɢᴇs: 1{round(int(total_results)/10)}", callback_data="neosub"), InlineKeyboardButton(text="Gᴏ Nᴇxᴛ »", callback_data=f"next_{req}_{key}_{offset}")]
+            [InlineKeyboardButton(f"Fɪʟᴇs: {total_results}", callback_data="neosub"),InlineKeyboardButton(text=f"Pᴀɢᴇs: 1{round(int(total_results)/10)}", callback_data="pages"), InlineKeyboardButton(text="Gᴏ Nᴇxᴛ »", callback_data=f"next_{req}_{key}_{offset}")]
         )
         btn.append(
             [InlineKeyboardButton(f"{message.chat.title}",callback_data=f"neosub")]
@@ -1416,7 +1416,7 @@ async def auto_filter(client, msg, spoll=False):
         )
     else:
         btn.append(
-            [InlineKeyboardButton(text="📃 Pages 1/1", callback_data="neosub")]
+            [InlineKeyboardButton(text="📃 Pᴀɢᴇs 1/1", callback_data="pages")]
         )
         btn.append(
             [InlineKeyboardButton(f"{message.chat.title}",callback_data=f"neosub")]
