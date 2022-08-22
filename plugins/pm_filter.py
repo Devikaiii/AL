@@ -194,9 +194,9 @@ async def next_page(bot, query):
         ]
         btn.insert(0, 
         [
-            InlineKeyboardButton(f'🎁 ɪɴꜰᴏ', 'movieinfo'),
-            InlineKeyboardButton(f'🕊️ ᴍᴏᴠɪᴇ 🕊️', 'movss'),
-            InlineKeyboardButton(f'ꜱᴇʀɪᴇꜱ 🎁', 'moviis')
+            InlineKeyboardButton(f'🗳️ ʜᴇʟᴘ', 'movieinfo'),
+            InlineKeyboardButton(f'🗃️ ɴᴏᴛᴇ', 'movss'),
+            InlineKeyboardButton(f'🔅 ɪɴғᴏ', 'moviis')
         ]
     )
 
@@ -213,29 +213,29 @@ async def next_page(bot, query):
              InlineKeyboardButton("ᴅᴇʟᴇᴛᴇ", callback_data="close_pages")]
         )
         btn.append(
-            [InlineKeyboardButton(f"📣 ഉർവശി തീയറ്റേഴ്‌സ് 📣",url=f"'https://t.me/{SUPPORT_CHAT}")]
+            [InlineKeyboardButton(f"{message.chat.title}",callback_data=f"neosub")]
         )
         btn.insert(0,
             [InlineKeyboardButton(f"🎭 {search} 🎭",callback_data="reqst11")]
         )
     elif off_set is None:
-        btn.append([InlineKeyboardButton("ᴘᴀɢᴇ", callback_data="neosub"),
-                    InlineKeyboardButton(f"{round(int(offset)/10)+1} - {round(total/10)}", callback_data="neosub"),
-                    InlineKeyboardButton("ɴᴇxᴛ", callback_data=f"next_{req}_{key}_{n_offset}")])
-        btn.append([InlineKeyboardButton("📣 ഉർവശി തീയറ്റേഴ്‌സ് 📣",url=f"'https://t.me/{SUPPORT_CHAT}")])
+        btn.append([InlineKeyboardButton(f"Fɪʟᴇs:", callback_data="neosub"),
+                    InlineKeyboardButton(f"Pᴀɢᴇs: {round(int(offset)/10)+1} - {round(total/10)}", callback_data="neosub"),
+                    InlineKeyboardButton("Gᴏ Nᴇxᴛ »", callback_data=f"next_{req}_{key}_{n_offset}")])
+        btn.append([InlineKeyboardButton(f"{message.chat.title}",callback_data=f"neosub")])
         btn.insert(0,
             [InlineKeyboardButton(f"🎭 {search} 🎭",callback_data="reqst11")]
         )
     else:
         btn.append(
             [
-                InlineKeyboardButton("ʙᴀᴄᴋ", callback_data=f"next_{req}_{key}_{off_set}"),
+                InlineKeyboardButton("« Bᴀᴄᴋ", callback_data=f"next_{req}_{key}_{off_set}"),
                 InlineKeyboardButton(f"{round(int(offset)/10)+1} - {round(total/10)}", callback_data="neosub"),
-                InlineKeyboardButton("ɴᴇxᴛ", callback_data=f"next_{req}_{key}_{n_offset}")
+                InlineKeyboardButton("Nᴇxᴛ »", callback_data=f"next_{req}_{key}_{n_offset}")
             ],
         )
         btn.append(
-            [InlineKeyboardButton(f"📣 ഉർവശി തീയറ്റേഴ്‌സ് 📣",url=f"https://t.me/{SUPPORT_CHAT}")]
+            [InlineKeyboardButton(f"{message.chat.title}",callback_data=f"neosub")]
         )
         btn.insert(0,
             [InlineKeyboardButton(f"🎭 {search} 🎭",callback_data="reqst11")]
@@ -1389,9 +1389,9 @@ async def auto_filter(client, msg, spoll=False):
         ]
     btn.insert(0, 
         [
-            InlineKeyboardButton(f'🎁 ɪɴꜰᴏ', 'movieinfo'),
-            InlineKeyboardButton(f'🕊️ ᴍᴏᴠɪᴇ 🕊️', 'movss'),
-            InlineKeyboardButton(f'ꜱᴇʀɪᴇꜱ 🎁', 'moviis')
+            InlineKeyboardButton(f'🗳️ ʜᴇʟᴘ', 'movieinfo'),
+            InlineKeyboardButton(f'🗃️ ɴᴏᴛᴇ', 'movss'),
+            InlineKeyboardButton(f'🔅 ɪɴғᴏ', 'moviis')
         ]
     )
 
@@ -1400,20 +1400,20 @@ async def auto_filter(client, msg, spoll=False):
         BUTTONS[key] = search
         req = message.from_user.id if message.from_user else 0
         btn.append(
-            [InlineKeyboardButton("ᴘᴀɢᴇ", callback_data="neosub"),InlineKeyboardButton(text=f"1 - {round(int(total_results)/10)}", callback_data="neosub"), InlineKeyboardButton(text="ɴᴇxᴛ", callback_data=f"next_{req}_{key}_{offset}")]
+            [InlineKeyboardButton(f"Fɪʟᴇs: {total_results}", callback_data="neosub"),InlineKeyboardButton(text=f"Pᴀɢᴇs: 1{round(int(total_results)/10)}", callback_data="neosub"), InlineKeyboardButton(text="Gᴏ Nᴇxᴛ »", callback_data=f"next_{req}_{key}_{offset}")]
         )
         btn.append(
-            [InlineKeyboardButton(f"{message.chat.title}",url=f"https://t.me/ddrabit")]
+            [InlineKeyboardButton(f"{message.chat.title}",callback_data=f"neosub")]
         )
         btn.insert(0,
             [InlineKeyboardButton(f"🎭 {search} 🎭",callback_data="reqst11")]
         )
     else:
         btn.append(
-            [InlineKeyboardButton(text="🚫 ᴍᴏʀᴇ ᴘᴀɢᴇ ɴᴏᴛ ᴀᴠᴀɪʟᴀʙʟᴇ 🚫", callback_data="neosub")]
+            [InlineKeyboardButton(text="📃 Pages 1/1", callback_data="neosub")]
         )
         btn.append(
-            [InlineKeyboardButton(f"{message.chat.title}",url=f"https://t.me/{SUPPORT_CHAT}")]
+            [InlineKeyboardButton(f"{message.chat.title}",callback_data=f"neosub")]
         )
         btn.insert(0,
             [InlineKeyboardButton(f"🎭 {search} 🎭",callback_data="reqst11")]
@@ -1455,7 +1455,7 @@ async def auto_filter(client, msg, spoll=False):
             **locals()
         )
     else:
-        cap = f"**👋 Hey {message.from_user.mention}.\n\n📮 Here is What I Found For Your Query: {search}\n\n📁 Total Files:{total_results}\n\n🗃️ {message.chat.title}.**"
+        cap = f"**👋 Hey {message.from_user.mention}.\n\n📮 Here is What I Found For Your Query: {search}\n\n📁 Total Files:{total_results}**"
     if imdb and imdb.get('poster'):
         try:
             await message.reply_photo(photo=imdb.get('poster'), caption=cap[:1024],
