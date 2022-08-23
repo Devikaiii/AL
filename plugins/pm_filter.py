@@ -235,7 +235,7 @@ async def next_page(bot, query):
             ],
         )
         btn.append(
-            [InlineKeyboardButton(f"{message.chat.title}",callback_data=f"neosub")]
+            [InlineKeyboardButton(f"",callback_data=f"neosub")]
         )
         btn.insert(0,
             [InlineKeyboardButton(f"🎭 {search} 🎭",callback_data="reqst11")]
